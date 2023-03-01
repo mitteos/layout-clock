@@ -1,0 +1,582 @@
+*, ::after, ::before
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+ol[class], ul[class]
+  padding: 0
+
+blockquote, body, dd, dl, figcaption, figure, h1, h2, h3, h4, li, ol, p, ul
+  margin: 0
+
+ol[class], ul[class]
+  list-style: none
+
+a, a:not([class])
+  text-decoration-skip-ink: auto
+  text-decoration: none
+  color: #000
+
+img
+  display: block
+
+article > * + *
+  margin-top: 1em
+
+button, input, select, textarea
+  font: inherit
+
+body
+  min-height: 100vh
+  scroll-behavior: smooth
+  text-rendering: optimizeSpeed
+
+header
+  background-color: #FDFDFB
+
+.header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  max-width: 1169px
+  width: 85.5%
+  margin: 0 auto
+  padding: 31px 0
+  position: relative
+  &__logo
+    position: relative
+    z-index: 4
+  &__container
+    display: flex
+    justify-content: flex-end
+    @media (max-width: 700px)
+      position: fixed
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background: rgba(255, 255, 255, 1)
+      z-index: 3
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      gap: 50px
+      opacity: 0
+      visibility: hidden
+      transition: all .3s ease
+      &.active
+        visibility: visible
+        opacity: 1
+  &__burger
+    cursor: pointer
+    align-items: center
+    height: 16px
+    position: relative
+    z-index: 4
+    display: none
+    @media (max-width: 700px)
+      display: flex
+    &.active
+      &::before
+        transform: rotate(45deg)
+      &::after
+        transform: rotate(-45deg)
+      .header__burger_inner
+        opacity: 0
+    &_inner
+      height: 2px
+      width: 20px
+      background: #000
+      transition: all .3s ease
+    &::before
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 2px
+      background: #000000
+      transform-origin: left bottom
+      transition: all .3s ease
+    &::after
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 2px
+      background: #000000
+      transform-origin: left top
+      transition: all .3s ease
+  &__nav
+    display: flex
+    align-items: center
+    gap: 65px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    @media (max-width: 900px)
+      gap: 30px
+    @media (max-width: 700px)
+      position: static
+      transform: translate(0, 0)
+      flex-direction: column
+    &_item
+      font-family: 'Roboto'
+      font-weight: 400
+      font-size: 14px
+      color: #555248
+  &__control
+    display: flex
+    gap: 23px
+    align-items: center
+    &_item
+      position: relative
+  &__likes
+    &_ntf
+      position: absolute
+      top: -5px
+      right: -8px
+      z-index: 1
+      font-family: 'Roboto'
+      font-weight: 400
+      font-size: 8px
+      line-height: 9px
+      color: #1B1A17
+      width: 13px
+      height: 13px
+      border-radius: 100%
+      background: #E6C8B4
+      display: flex
+      align-items: center
+      justify-content: center
+.main
+  overflow: hidden
+  background-color: #FDFDFB
+  height: 768px
+  margin-bottom: 76px
+  @media (max-width: 980px)
+    height: auto
+  @media (max-width: 700px)
+    padding: 30px 0
+  &__container
+    display: flex
+    max-width: 982px
+    width: 71.8%
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @media (max-width: 700px)
+      flex-direction: column
+      gap: 30px
+  &__item
+    position: relative
+    z-index: 2
+    @media (max-width: 700px)
+      order: 2
+    &_title, &_subtitle
+      font-family: 'Playfair Display'
+      font-weight: 400
+      font-size: 45px
+      color: #1B1A17
+      margin: 0 0 16px
+    &_title
+      position: relative
+      @media (max-width: 900px)
+        font-size: 35px
+        margin: 0 0 8px
+      &::before
+        content: ""
+        position: absolute
+        width: 50px
+        height: 1px
+        background: #8B8371
+        left: -65px
+        bottom: 12px
+        z-index: 10
+    &_subtitle
+      font-size: 30px
+      margin: 0 0 39px
+      @media (max-width: 900px)
+        font-size: 25px
+        margin: 0 0 20px
+    &_text
+      font-family: 'Roboto'
+      font-weight: 300
+      font-size: 14px
+      color: rgba(27, 26, 23, 0.82)
+      margin: 0 0 64px
+      @media (max-width: 900px)
+        margin: 0 0 40px
+    &_button
+      font-family: 'Roboto'
+      font-weight: 500
+      font-size: 12px
+      letter-spacing: 0.05em
+      text-transform: uppercase
+      color: #FFFFFF
+      padding: 25px 37px
+      background: #444240
+      transition: all .3s ease
+      border: 1px solid #444240
+      &:hover
+        background: none
+        color: #444240
+    &_watch
+      position: relative
+      z-index: 1
+      @media (max-width: 980px)
+        width: 100%
+      @media (max-width: 700px)
+        width: 90%
+  .watch
+    position: relative
+    margin-top: -11px
+    z-index: 1
+    @media (max-width: 1010px)
+      width: 65%
+    @media (max-width: 700px)
+      order: 1
+      width: 75%
+    &__back
+      position: absolute
+      width: 496px
+      height: 944.01px
+      background: linear-gradient(180deg, rgba(234, 227, 212, 0) 0%, #EAE3D4 100%)
+      mix-blend-mode: normal
+      top: 50%
+      right: 41%
+      transform: translateY(-50%)
+      border-top-left-radius: 100%
+      border-bottom-left-radius: 100%
+      z-index: 0
+      @media (max-width: 700px)
+        height: 100%
+        width: 100%
+    &__container
+      display: flex
+      align-items: center
+      gap: 15px
+      position: absolute
+      &_line
+        width: 50px
+        height: 1px
+        background: #8B8371
+        @media (max-width: 780px)
+          width: 25px
+      &_row
+        display: flex
+        gap: 7px
+        align-items: center
+      &_text
+        font-family: 'Prata'
+        font-weight: 400
+        font-size: 16px
+        color: #1B1A17
+        @media (max-width: 500px)
+          font-size: 12px
+    &__price
+      left: -79px
+      top: 15%
+    &__size
+      right: -85px
+      bottom: 16%
+      @media (max-width: 830px)
+        right: -29%
+
+.popular
+  margin-bottom: 86px
+  &__header
+    max-width: 1170px
+    margin: 0 auto
+    width: 85.6%
+    &_title
+      font-family: 'Playfair Display'
+      font-weight: 400
+      font-size: 32px
+      color: #1B1A17
+      text-align: center
+      @media (max-width: 700px)
+        margin: 0 0 10px
+        font-size: 28px
+  &__link
+    display: flex
+    justify-content: flex-end
+    margin-bottom: 37px
+    &_inner
+      position: relative
+      display: inline-flex
+      font-family: 'Roboto'
+      font-weight: 500
+      font-size: 16px
+      color: #444240
+      &::before
+        content: ""
+        position: absolute
+        bottom: -11px
+        left: 0
+        width: 100%
+        height: 1px
+        background: #C4C0B6
+  &__row
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    gap: 34px
+    padding: 0 30px
+  &__item
+    padding: 40px 28px
+    background: #FDFDFB
+    max-width: 370px
+    &_name
+      font-family: 'Playfair Display'
+      font-weight: 700
+      font-size: 14px
+      letter-spacing: 0.03em
+      color: rgba(27, 26, 23, 0.82)
+      margin: 0 0 10px
+    .price
+      &__row
+        display: flex
+        align-items: center
+        gap: 4px
+        &_count
+          font-family: 'Prata'
+          font-weight: 400
+          font-size: 12px
+          color: rgba(27, 26, 23, 0.82)
+        &_img
+          height: 10px
+  &__image
+    position: relative
+    margin: 0 0 19px
+    width: 100%
+    &_inner
+      position: relative
+      z-index: 1
+      width: 100%
+    &_bg
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: linear-gradient(to right, rgba(226, 208, 196, 0), rgba(226, 208, 196, 1))
+      border-radius: 100%
+      z-index: 0
+      &::after
+        content: ""
+        position: absolute
+        width: 99.5%
+        height: 99.5%
+        border-radius: 100%
+        background: #FDFDFB
+  &__more
+    display: flex
+    align-items: center
+    gap: 18px
+    &_line
+      width: 30px
+      height: 1px
+      background: #8B8371
+    &_text
+      font-family: 'Playfair Display'
+      font-weight: 400
+      font-size: 16px
+      color: #1B1A17
+.slider
+  background: #FDFDFB
+  position: relative
+  padding: 52px 0
+  &::before
+    content: ""
+    position: absolute
+    left: 0
+    top: 0
+    max-width: 468px
+    width: 34.2%
+    height: 100%
+    background: #F7F5EF
+  &__decoration
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: hidden
+    &_top
+      position: absolute
+      right: -150px
+      top: -148px
+      width: 365px
+      height: 365px
+      border-radius: 100%
+      background: linear-gradient(to right, rgba(212, 176, 152, 1), rgba(212, 176, 152, 0))
+      transform: rotate(-28.35deg)
+      &::after
+        content: ""
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 364px
+        height: 364px
+        background: #FDFDFB
+        border-radius: 100%
+    &_bottom
+      position: absolute
+      right: -522px
+      bottom: -237px
+      width: 744px
+      height: 744px
+      border: 1px solid rgba(212, 176, 152, 1)
+      border-radius: 100%
+      transform: rotate(28.35deg)
+
+.slide
+  &__item
+    display: flex
+    align-items: center
+    gap: 69px
+    justify-content: center
+    &_img
+      max-width: 521px
+      width: 35%
+      @media (max-width: 700px)
+        width: 65%
+    @media (max-width: 800px)
+      gap: 30px
+    @media (max-width: 700px)
+      flex-direction: column
+      align-items: center
+  &__info
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-self: stretch
+    @media (max-width: 700px)
+      text-align: center
+      gap: 20px
+    &_title
+      font-family: 'Playfair Display'
+      font-weight: 400
+      font-size: 32px
+      color: #1B1A17
+      @media (max-width: 1000px)
+        font-size: 24px
+    &_link
+      padding: 26px 38px
+      background: #D4B098
+      font-family: 'Roboto'
+      font-weight: 500
+      font-size: 12px
+      letter-spacing: 0.05em
+      color: #FFFFFF
+      align-self: flex-start
+      @media (max-width: 1000px)
+        padding: 15px 25px
+        font-size: 10px
+      @media (max-width: 700px)
+        align-self: center
+  &__navigation
+    display: flex
+    justify-content: center
+    gap: 20px
+    margin-top: 20px
+    &_current
+      width: auto
+      font-family: 'Prata'
+      font-weight: 400
+      font-size: 12px
+      color: rgba(27, 26, 23, 0.82)
+  &__arrow
+    &_prev, &_next
+      cursor: pointer
+    &_next
+      transform: rotate(180deg)
+
+.social
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 71px
+  margin: 81px 50px 90px 50px
+  @media (max-width: 950px)
+    flex-direction: column
+    gap: 40px
+  &__grid
+    display: grid
+    grid-template-columns: 242px 377px
+    grid-template-rows: 228px 222px
+    gap: 10px
+    @media (max-width: 700px)
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: 50% 50%
+    &_item
+      @media (max-width: 700px)
+        width: 100%
+        height: 100%
+        object-fit: cover
+      &.long
+        grid-row-start: 1
+        grid-row-end: 3
+        grid-column-start: 2
+  &__item
+    &_title
+      font-family: 'Playfair Display'
+      font-weight: 400
+      font-size: 32px
+      color: #1B1A17
+      margin: 0 0 40px
+      @media (max-width: 950px)
+        margin: 0 0 20px
+    &_desc
+      font-family: 'Roboto'
+      font-weight: 400
+      font-size: 16px
+      color: #444240
+      margin: 0 0 118px
+      max-width: 376px
+      @media (max-width: 950px)
+        margin: 0 0 30px
+  &__row
+    display: flex
+    gap: 18px
+    &_item
+      transition: all .3s ease
+      &:hover
+        transform: translateY(-10px)
+
+.footer
+  background: #444240
+  &__container
+    max-width: 998px
+    margin: 0 auto
+    padding: 79px 30px 67px 30px
+    display: flex
+    justify-content: space-between
+    gap: 30px
+    flex-wrap: wrap
+  &__logo
+    margin-bottom: 8px
+  &__item
+    display: flex
+    flex-direction: column
+    gap: 15px
+    &_short
+      margin-top: -12px
+    &_title
+      text-transform: uppercase
+      font-family: 'Roboto'
+      font-weight: 700
+      font-size: 14px
+      letter-spacing: 0.07em
+      color: #FFFFFF
+      margin-bottom: 18px
+    &_link
+      font-family: 'Roboto'
+      font-weight: 400
+      font-size: 12px
+      color: rgba(255, 255, 255, 0.75)
